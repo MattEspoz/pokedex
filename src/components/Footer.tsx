@@ -1,3 +1,4 @@
+"use client";
 // components/Footer.tsx
 import { Box, Text } from "@chakra-ui/react";
 import React from "react";

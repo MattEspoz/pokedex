@@ -1,4 +1,4 @@
-// src/components/PokemonCard.tsx
+"use client";
 // src/components/PokemonCard.tsx
 import { Box, Heading, Image, Text } from "@/components/Chakra";
 import React from "react";

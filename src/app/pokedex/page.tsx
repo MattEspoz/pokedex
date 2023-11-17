@@ -1,3 +1,4 @@
+"use client";
 // src/app/pokedex/page.tsx
 import {
   Box,
@@ -10,7 +11,6 @@ import {
   Text,
   VStack,
 } from "@/components/Chakra";
-import Navbar from "@/components/Navbar";
 import React from "react";
 import PokemonCard from "./PokemonCard";
 
