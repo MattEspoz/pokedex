@@ -1,13 +1,13 @@
 "use client";
 // components/TrainerBox.tsx
 import {
-    Box,
-    Button,
-    Divider,
-    Heading,
-    Image,
-    Text,
-    VStack,
+  Box,
+  Button,
+  Divider,
+  Heading,
+  Image,
+  Text,
+  VStack,
 } from "@/components/Chakra";
 import React, { useEffect, useState } from "react";
 
@@ -25,10 +25,9 @@ const TrainerBox: React.FC<TrainerBoxProps> = ({
   cards,
 }) => {
   const [showAttackText, setShowAttackText] = useState(false);
-  const attackPoints = Math.floor(Math.random() * (32 - 8 + 1)) + 8;
-  const handleFightClick = () => {
-    // Generate a random number between 8 and 32 for the attack points
 
+  const attackPoints = 32;
+  const handleFightClick = () => {
     console.log("hi");
     // Display the attack text
     setShowAttackText(true);
