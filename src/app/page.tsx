@@ -3,13 +3,7 @@
 import Profile from "./profile/page";
 
 function MyApp() {
-  return (
-    <Profile
-      name="Bulbasaur"
-      imageUrl="https://example.com/bulbasaur.jpg"
-      description="a grass pokemon"
-    />
-  );
+  return <Profile />;
 }
 
 export default MyApp;

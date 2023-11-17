@@ -11,16 +11,14 @@ const Layout = ({ children }: { children: ReactNode }) => (
   <Providers>
     <Box height="100vh" overflow="hidden" position="relative">
       <Flex h="full" id="app-container">
-        <Navbar />
         <Box
           bg="#F4FCF2"
           flex="1"
           overflowY="auto" // Add this line for vertical scrolling
           maxHeight="100vh" // Set a maximum height to enable scrolling if content overflows
         >
-          <Container maxW="full" paddingX="4">
-            {children}
-          </Container>
+          <Navbar />
+          <Container maxW="full">{children}</Container>
         </Box>
       </Flex>
     </Box>
