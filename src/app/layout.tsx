@@ -1,4 +1,5 @@
 import { Box, Container, Flex } from "@/components/Chakra";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { ReactNode } from "react";
 import { Providers } from "./providers";
@@ -19,6 +20,7 @@ const Layout = ({ children }: { children: ReactNode }) => (
         >
           <Navbar />
           <Container maxW="full">{children}</Container>
+          <Footer />
         </Box>
       </Flex>
     </Box>
