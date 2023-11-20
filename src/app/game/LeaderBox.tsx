@@ -10,19 +10,9 @@ import {
 } from "@/components/Chakra";
 import React from "react";
 
-interface LeaderBoxProps {
-  title: string;
-  image: string;
-  subtitle: string;
-  cards: { label: string; value: string }[];
-}
+const cardLabels = ["Stage", "Battle", "Type", "Location"];
 
-const LeaderBox: React.FC<LeaderBoxProps> = ({
-  title,
-  image,
-  subtitle,
-  cards,
-}) => (
+const LeaderBox = () => (
   <VStack align="center" mb="4">
     <Box
       bg="green.100"
@@ -32,25 +22,29 @@ const LeaderBox: React.FC<LeaderBoxProps> = ({
       textAlign="center"
       width="100%"
     >
-      <Image src={image} alt={title} maxH="80px" maxW="80px" mx="auto" />
+      <Image
+        src="/leader.png"
+        alt="Gym Leader"
+        maxH="80px"
+        maxW="80px"
+        mx="auto"
+      />
     </Box>
     <Heading as="h2" fontSize="2xl" mb="2" mt="2">
-      {subtitle}
+      Leader | 011
     </Heading>
     <Divider mb="4" borderWidth="2px" />
     <VStack spacing="2" width="100%">
-      {cards.map((card) => (
+      {cardLabels.map((label) => (
         <Box
-          key={card.label}
+          key={label}
           bg="#D4C8C8"
           p="2"
           borderRadius="md"
           border="2px solid #828282"
           width="100%"
         >
-          <Text fontWeight="bold">
-            {card.label}: {card.value}
-          </Text>
+          <Text fontWeight="bold">{label}: XXX</Text>
         </Box>
       ))}
     </VStack>

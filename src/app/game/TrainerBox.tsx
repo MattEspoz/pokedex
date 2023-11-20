@@ -11,19 +11,7 @@ import {
 } from "@/components/Chakra";
 import React, { useEffect, useState } from "react";
 
-interface TrainerBoxProps {
-  title: string;
-  image: string;
-  subtitle: string;
-  cards: { label: string; value: string }[];
-}
-
-const TrainerBox: React.FC<TrainerBoxProps> = ({
-  title,
-  image,
-  subtitle,
-  cards,
-}) => {
+const TrainerBox = () => {
   const [showAttackText, setShowAttackText] = useState(false);
 
   const attackPoints = 32;
@@ -60,10 +48,16 @@ const TrainerBox: React.FC<TrainerBoxProps> = ({
         textAlign="center"
         width="100%"
       >
-        <Image src={image} alt={title} maxH="80px" maxW="80px" mx="auto" />
+        <Image
+          src="/character.png"
+          alt="Trainer"
+          maxH="80px"
+          maxW="80px"
+          mx="auto"
+        />
       </Box>
       <Heading as="h2" fontSize="2xl" mb="2" mt="2">
-        {subtitle}
+        Trainer | 001
       </Heading>
       <Divider mb="4" borderWidth="2px" />
 

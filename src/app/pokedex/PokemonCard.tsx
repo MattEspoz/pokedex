@@ -4,40 +4,36 @@ import { Box, Heading, Image, Text } from "@/components/Chakra";
 import React from "react";
 
 interface PokemonCardProps {
-  id: number;
+  pokemon_id: number;
   name: string;
   type: string;
-  imageUrl?: string;
 }
-const formatId = (id: number) => id.toString().padStart(3, "0");
+const formatID = (pokemon_id: number) => pokemon_id.toString().padStart(3, "0");
+
+const typeColors: { [key: string]: string } = {
+  Electric: "#936216",
+  Fire: "red.500",
+  Grass: "green.500",
+  Normal: "gray",
+  Psychic: "purple.500",
+  Water: "blue.500",
+  Fighting: "brown",
+  // Add more types as needed
+};
 
 const PokemonCard: React.FC<PokemonCardProps> = ({
-  id,
+  pokemon_id,
   name,
   type,
-  imageUrl,
 }) => (
   <Box
     p="4" // Increase padding to make the card larger
     borderRadius="lg"
-    border="2px solid #9AA4D3"
+    border="2px solpokemon_id #9AA4D3"
     width="100%"
     bg="#DDEFF5"
     textAlign="left"
   >
-    {/* Green box with the Pokemon image */}
-    <Box
-      bg="gray.200"
-      p="2"
-      borderRadius="md"
-      mb="4"
-      textAlign="center"
-      maxH="100px"
-    >
-      <Image src={imageUrl} alt={name} maxH="80px" maxW="80px" mx="auto" />
-    </Box>
-
-    {/* ID and Type */}
     <Box
       display="flex"
       justifyContent="space-between"
@@ -46,12 +42,12 @@ const PokemonCard: React.FC<PokemonCardProps> = ({
       mt="2"
     >
       <Text fontWeight="bold" color="gray.700">
-        #{formatId(id)}
+        #{formatID(pokemon_id)}
       </Text>
       <Text
         fontWeight="bold"
-        color="gray.700"
-        bg="gray.400"
+        color="gray.200"
+        bg={typeColors[type] || "gray"} // Default to gray if type is not in the mapping
         px="2"
         borderRadius="md"
       >
