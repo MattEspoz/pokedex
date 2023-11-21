@@ -6,7 +6,7 @@ import React from "react";
 const Footer: React.FC = () => (
   <Box p="4" textAlign="center" width="100%">
     <Text color="gray.700" fontWeight="bold">
-      🔆 Built by Matt & Naz
+      🔆 Built by Matt & Joseph
     </Text>
   </Box>
 );
