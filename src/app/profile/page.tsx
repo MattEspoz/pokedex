@@ -12,7 +12,10 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchPokemon = async () => {
-      const { data, error } = await supabase.from("Trainer").select();
+      const { data, error } = await supabase
+        .from("Trainer")
+        .select()
+        .order("trainer_id");
       if (error) console.log(error);
 
       if (data) {
@@ -109,28 +112,34 @@ const Profile = () => {
                 Pokemon.
               </Text>
             )}
-            {/* TODO: Map and display the collected Pokemon */}
             {/* Map and display the collected Pokemon */}
             <Flex flexWrap="wrap">
               {pokemon &&
                 pokemonDetails &&
-                pokemon[0]?.pokemon_ids.map((id: number, index: number) => (
-                  <Box
-                    key={id}
-                    bg="#DDEFF5"
-                    p="4"
-                    borderRadius="md"
-                    border="2px solid #9AA4D3"
-                    mt="4"
-                    mr="4"
-                  >
-                    {/* Display Pokemon data here */}
-                    <Text color="black" fontWeight="bold" textAlign="center">
-                      {pokemonDetails[index]?.name || `Pokemon #${id}`}
-                    </Text>
-                    {/* Additional Pokemon data can be added as needed */}
-                  </Box>
-                ))}
+                pokemon[0]?.pokemon_ids.map((id: number, index: number) => {
+                  const pokemonDetail = pokemonDetails.find(
+                    (detail) => detail.pokemon_id === id
+                  );
+                  return (
+                    <Box
+                      key={id}
+                      bg="#DDEFF5"
+                      p="4"
+                      borderRadius="md"
+                      border="2px solid #9AA4D3"
+                      mt="4"
+                      mr="4"
+                    >
+                      {/* Display Pokemon data here */}
+                      <Text color="black" fontWeight="bold" textAlign="center">
+                        {pokemonDetail && pokemonDetail.name
+                          ? pokemonDetail.name
+                          : `Pokemon #${id}`}
+                      </Text>
+                      {/* Additional Pokemon data can be added as needed */}
+                    </Box>
+                  );
+                })}
             </Flex>
           </Box>
         </Flex>

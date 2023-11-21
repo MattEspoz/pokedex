@@ -35,8 +35,6 @@ const LeaderBox = () => {
         } else if (data && data.length > 0) {
           // Randomly select a leader from the fetched data
           const randomIndex = Math.floor(Math.random() * data.length);
-          console.log(data.length + "data length");
-          console.log(data + "data boys");
           setLeaderData(data[randomIndex]);
         }
       } catch (error) {
